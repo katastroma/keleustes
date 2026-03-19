@@ -3,7 +3,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: [source]
+    branches: [default]
     paths-ignore:
       - LICENSE
       - '**/*.md'
