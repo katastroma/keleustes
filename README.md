@@ -6,11 +6,12 @@ Resolver interface for GitOps on Kubernetes. Defines the contract for answering:
 ## What This Is
 
 A Go module containing an interface definition and its associated types. Not a
-controller, not a server, not a CLI. It is the contract that resolvers implement.
+controller, not a server, not a CLI. It is the contract that resolvers
+implement.
 
-A resolver takes a source — a git repository, a branch, a path, and
-credentials — and produces a resource inventory: the set of Kubernetes resources
-that should exist according to that source.
+A resolver takes a source — a git repository, a branch, a path, and credentials
+— and produces a resource inventory: the set of Kubernetes resources that should
+exist according to that source.
 
 ## Why It Exists
 
