@@ -14,6 +14,6 @@ jobs:
       contents: write
     uses: katastroma/skeuotheke/.github/workflows/version.yaml@v0
     with:
-      GH_APP_ID: ${{ vars.PLATFORM_GH_APP_CLIENT_ID }}
+      GH_APP_ID: ${{ vars.SKEUOTHEKE_GH_APP_CLIENT_ID }}
     secrets:
-      GH_APP_PRIVATE_KEY: ${{ secrets.PLATFORM_GH_APP_PRIVATE_KEY }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.SKEUOTHEKE_GH_APP_PRIVATE_KEY }}
