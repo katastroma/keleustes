@@ -24,14 +24,6 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v4
 
-      - name: Install Go protoc plugins
-        run: |
-          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-
-      - name: Install protoc
-        uses: arduino/setup-protoc@v3
-
       - name: Get go module
         id: mod
         run: echo "mod=$(go -C go list -m)" >> "${GITHUB_OUTPUT}"
