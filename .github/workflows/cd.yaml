@@ -8,27 +8,67 @@ on:
       - '!v*'
 
 jobs:
-  release:
+  gen:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      ECOSYSTEM: go
+      TAG: v${{ github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
           ref: ${{ github.ref_name }}
+
+      - name: Setup mise
+        uses: jdx/mise-action@v4
+
+      - name: Install Go protoc plugins
+        run: |
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+      - name: Install protoc
+        uses: arduino/setup-protoc@v3
+
+      - name: Get go module
+        id: mod
+        run: echo "mod=$(go -C go list -m)" >> "${GITHUB_OUTPUT}"
+
+      - name: Generate from protos
+        run: |
+          protoc -Iprotos \
+            --go_out=go --go_opt=paths=import --go_opt=module=${{ steps.mod.outputs.mod }} \
+            --go-grpc_out=go --go-grpc_opt=paths=import --go-grpc_opt=module=${{ steps.mod.outputs.mod }} \
+            protos/**/*.proto
+
+      - name: Stage generated code
+        run: git add --force .
+
+      - name: Create tree from ecosystem directory
+        id: tree
+        run: |
+          TREE=$(git write-tree --prefix=${{ env.ECOSYSTEM }}/)
+          echo "TREE=${TREE}" >> $GITHUB_OUTPUT
 
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Setup mise
-        uses: jdx/mise-action@v4
+      - name: Create orphan commit
+        id: commit
+        shell: bash
+        run: |
+          COMMIT=$(git commit-tree ${{ steps.tree.outputs.TREE }} -m "chore: generate code from protos for ${{ env.ECOSYSTEM }}")
+          echo "COMMIT=${COMMIT}" >> $GITHUB_OUTPUT
 
       - name: Create release tag
-        run: git tag v$(cog -v get-version)
+        run: git tag ${{ env.TAG }} ${{ steps.commit.outputs.COMMIT }}
+
+      - name: Push gen commit
+        run: git push --force origin ${{ steps.commit.outputs.COMMIT }}:refs/heads/gen-${{ env.ECOSYSTEM }}
 
       - name: Push release tag
-        run: git push origin v$(cog -v get-version)
+        run: git push origin ${{ env.TAG }}
