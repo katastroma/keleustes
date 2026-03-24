@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.0 - 2026-03-24
+#### Features
+- use buf for generating proto output - (e65f5c2) - Nathan Blair
+#### Miscellaneous Chores
+- go mod tidy - (b511594) - Nathan Blair
+
+- - -
+
 ## 0.3.0 - 2026-03-24
 #### Features
 - back to having a Render rpc - (b0c88fe) - Nathan Blair
