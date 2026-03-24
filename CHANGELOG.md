@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.3.0 - 2026-03-24
+#### Features
+- back to having a Render rpc - (b0c88fe) - Nathan Blair
+#### Documentation
+- update as client API interface - (4d89661) - Nathan Blair
+- clean up docs - (28005be) - Nathan Blair
+#### Refactoring
+- exposes client API not service-service - (8413bf6) - Nathan Blair
+
+- - -
+
 ## 0.2.2 - 2026-03-21
 #### Bug Fixes
 - (**ci**) use skeuotheke proto release workflow - (ea7527f) - Nathan Blair
