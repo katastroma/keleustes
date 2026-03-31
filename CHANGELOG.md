@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.4 - 2026-03-31
+#### Bug Fixes
+- use client-streaming bidi streaming - (b67895b) - Nathan Blair
+
+- - -
+
 ## 0.4.3 - 2026-03-31
 #### Bug Fixes
 - the RenderResponse doesn't need to contain anything - (04439f2) - Nathan Blair
