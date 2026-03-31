@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.3 - 2026-03-31
+#### Bug Fixes
+- the RenderResponse doesn't need to contain anything - (04439f2) - Nathan Blair
+#### Documentation
+- use org CONTRIBUTING.md - (3075005) - Nathan Blair
+
+- - -
+
 ## 0.4.2 - 2026-03-26
 #### Bug Fixes
 - (**cd**) don't trigger on ignored files - (def2e91) - Nathan Blair
