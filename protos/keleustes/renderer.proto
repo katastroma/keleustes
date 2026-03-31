@@ -9,6 +9,14 @@ service RendererService {
   rpc Render(stream RenderRequest) returns (RenderResponse);
 }
 
+// RendererType identifies which rendering backend to use.
+enum RendererType {
+  RENDERER_TYPE_UNSPECIFIED = 0;
+  RENDERER_TYPE_PLAIN = 1;
+  RENDERER_TYPE_HELM = 2;
+  RENDERER_TYPE_KUSTOMIZE = 3;
+}
+
 // Streamed source content to be rendered.
 message RenderRequest {
   bytes data = 1;
