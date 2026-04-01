@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.6 - 2026-04-01
+#### Bug Fixes
+- add metadata key - (0d13fbe) - Nathan Blair
+
+- - -
+
 ## 0.4.5 - 2026-03-31
 #### Bug Fixes
 - add back supported rendering types to keleustes - (7e82cc6) - Nathan Blair
