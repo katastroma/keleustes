@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.7 - 2026-04-05
+#### Bug Fixes
+- keleustes can stream response - (7394761) - Nathan Blair
+#### Miscellaneous Chores
+- revive note - (3c701a8) - Nathan Blair
+
+- - -
+
 ## 0.4.6 - 2026-04-01
 #### Bug Fixes
 - add metadata key - (0d13fbe) - Nathan Blair
