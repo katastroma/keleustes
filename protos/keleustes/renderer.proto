@@ -6,7 +6,8 @@ option go_package = "github.com/katastroma/keleustes";
 
 // RendererService produces Kubernetes manifests from source content.
 service RendererService {
-  rpc Render(stream RenderRequest) returns (stream RenderResponse);
+  rpc RenderStream(stream RenderStreamRequest) returns (stream RenderStreamResponse);
+  rpc Render(stream RenderRequest) returns (RenderResponse);
 }
 
 // RendererType identifies which rendering backend to use.
@@ -18,11 +19,19 @@ enum RendererType {
 }
 
 // Streamed source content to be rendered.
+message RenderStreamRequest {
+  bytes data = 1;
+}
+
+// Rendered Kubernetes manifests.
+message RenderStreamResponse {
+  bytes data = 1;
+}
+
+// Streamed source content to be rendered.
 message RenderRequest {
   bytes data = 1;
 }
 
 // Rendered Kubernetes manifests.
-message RenderResponse {
-  bytes data = 1;
-}
+message RenderResponse {}
