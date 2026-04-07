@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.8 - 2026-04-07
+#### Bug Fixes
+- enable both client and bidi streaming - (96061dc) - Nathan Blair
+
+- - -
+
 ## 0.4.7 - 2026-04-05
 #### Bug Fixes
 - keleustes can stream response - (7394761) - Nathan Blair
